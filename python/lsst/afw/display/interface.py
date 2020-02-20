@@ -91,7 +91,7 @@ def _makeDisplayImpl(display, backend, *args, **kwargs):
         try:
             _disp = importlib.import_module(dt, **impargs)
             break
-        except (ImportError, SystemError) as e:
+        except (ImportError, SystemError, ModuleNotFoundError) as e:
             # SystemError can be raised in Python 3.5 if a relative import
             # is attempted when the root package, lsst.display, does not exist.
             # Copy the exception into outer scope
